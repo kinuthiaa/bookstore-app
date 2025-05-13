@@ -4,10 +4,15 @@ import cors from 'cors';
 import authRoutes from "./routes/authRoutes.js";
 import bookRoutes from './routes/bookRoutes.js';
 import { connDB } from './lib/db.js';
+import job from './lib/cron.js';
 
 //port setup
 const app = express();
 const PORT = process.env.PORT || 3000;
+
+
+//cron function
+job.start();
 
 
 //routes
